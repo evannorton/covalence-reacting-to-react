@@ -25,30 +25,41 @@ class App extends Component {
     }
 
     handleClick(hasLoaded) {
-        if (this.state.hasLoaded === false) {
-            this.setState({ hasLoaded });
+        if (hasLoaded) {
+            this.setState({ hasLoaded: false });
         } else {
-            this.setState({ hasLoaded });
+            this.setState({ hasLoaded: true });
         }
     }
 
     render() {
-        return (
-            <React.Fragment>
-                <input
-                    placeholder={ this.state.text }
-                    onChange={(event) => this.handleInput(event.target.value)}
-                />
-                <br />
-                <br />
-                <button
-                    onClick={(event) => this.handleClick(this.state.hasLoaded)}
-                >Click Me</button>
-                <h1>{this.props.value}
-                <br />
-                {this.state.text}</h1>
-            </React.Fragment>
-        );
+        if (this.state.hasLoaded) {
+            return (
+                <React.Fragment>
+                    <input
+                        placeholder={ this.state.text }
+                        onChange={(event) => this.handleInput(event.target.value)}
+                    />
+                    <br />
+                    <br />
+                    <button
+                        onClick={(event) => this.handleClick(this.state.hasLoaded)}
+                    >Click Me</button>
+                    <h1>{this.props.value}
+                    <br />
+                    {this.state.text}</h1>
+                </React.Fragment>
+            );
+        } else {
+            return (
+                <React.Fragment>
+                    <button
+                        onClick={(event) => this.handleClick(this.state.hasLoaded)}
+                    >Click Me</button>
+                    {console.log(this.state.hasLoaded)}
+                </React.Fragment>
+            );
+        }
     }
 }
 
