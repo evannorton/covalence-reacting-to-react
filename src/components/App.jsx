@@ -1,8 +1,8 @@
 import React from "react";
 
-const App = () => {
+const App = (props) => {
     return (
-        <h1>words</h1>
+        <h1>{props.text}</h1>
     );
 }
 
