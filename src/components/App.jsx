@@ -19,7 +19,7 @@ class App extends Component {
 
     render() {
         return (
-            <h1>{this.props.value}</h1>
+            <h1>{this.props.value}<br/>{this.state.text}</h1>
         );
     }
 }
