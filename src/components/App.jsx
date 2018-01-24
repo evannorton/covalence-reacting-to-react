@@ -9,9 +9,17 @@ const App = (props) => {
 */
 
 class App extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: "this text is in the state"
+        };
+    }
+
     render() {
         return (
-            <h1>{this.props.text}</h1>
+            <h1>{this.props.value}</h1>
         );
     }
 }
