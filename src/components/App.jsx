@@ -14,12 +14,22 @@ class App extends Component {
         super(props);
         
         this.state = {
-            text: "this text is in the state"
+            text: "this text is in the state",
+            value: "",
+            hasLoaded: false
         };
     }
 
     handleInput(value) {
         this.setState({ value });
+    }
+
+    handleClick(hasLoaded) {
+        if (this.state.hasLoaded === false) {
+            this.setState({ hasLoaded });
+        } else {
+            this.setState({ hasLoaded });
+        }
     }
 
     render() {
@@ -29,7 +39,14 @@ class App extends Component {
                     placeholder={ this.state.text }
                     onChange={(event) => this.handleInput(event.target.value)}
                 />
-                <h1>{this.props.value}<br />{this.state.text}</h1>
+                <br />
+                <br />
+                <button
+                    onClick={(event) => this.handleClick(this.state.hasLoaded)}
+                >Click Me</button>
+                <h1>{this.props.value}
+                <br />
+                {this.state.text}</h1>
             </React.Fragment>
         );
     }
